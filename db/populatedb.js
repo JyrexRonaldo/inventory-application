@@ -6,7 +6,8 @@ const SQL = `
 CREATE TABLE IF NOT EXISTS games (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   title VARCHAR ( 50 ),
-  release_date TIMESTAMP
+  release_date TIMESTAMP,
+  quantity INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS developers (
