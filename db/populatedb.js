@@ -36,9 +36,9 @@ CREATE TABLE IF NOT EXISTS games_genres (
 );
 
 
-INSERT INTO games (title, release_date) 
+INSERT INTO games (title, release_date, quantity) 
 VALUES
-  ('Grand Theft Auto V', '2013-09-17' );
+  ('Grand Theft Auto V', '2013-09-17', 25 );
 `;
 
 async function main() {
