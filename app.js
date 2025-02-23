@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const indexRouter = require("./routes/indexRouter");
+const gameRouter = require("./routes/gameRouter")
+const genreRouter = require("./routes/genreRouter")
 const app = express();
 const path = require("node:path")
 
@@ -13,7 +15,7 @@ app.use(express.static(assetsPath))
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter)
-// app.use("/games", gameRouter)
+app.use("/games", gameRouter)
 // app.use("/developers", developerRouter)
 // app.use("/genres", genreRouter)
 
