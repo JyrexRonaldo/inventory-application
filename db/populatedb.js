@@ -39,6 +39,22 @@ CREATE TABLE IF NOT EXISTS games_genres (
 INSERT INTO games (title, release_date, quantity) 
 VALUES
   ('Grand Theft Auto V', '2013-09-17', 25 );
+
+  INSERT INTO developers (name, country, headquaters, website) 
+VALUES
+  ('Rockstar', 'United States of America', 'New York City', 'https://www.rockstargames.com/');
+
+  INSERT INTO genres (name) 
+VALUES
+  ('Action');
+
+  INSERT INTO games_developers (game_id, developer_id) 
+VALUES
+  (1,1);
+
+  INSERT INTO games_genres (game_id, genre_id) 
+VALUES
+  (1,1);
 `;
 
 async function main() {
