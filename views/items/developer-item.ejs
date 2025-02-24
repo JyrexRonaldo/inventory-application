@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include("../partials/header", {title: title } )%>
+    <div>
+        <h3><%= title %></h3>
+        <div><button>Edit Developer Info</button><button>Delete Developer Info</button></div>
+        <div>
+            <h3>Details</h3>
+            <p>Country:</p>
+            <p>Headquaters:</p>
+            <p>Website:</p>
+        </div>
+    </div>
+</body>
+</html>

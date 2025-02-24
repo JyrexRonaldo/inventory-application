@@ -3,7 +3,8 @@ function getDevelopersPage(req, res) {
 }
 
 function getForm(req, res) {
-  res.render("forms/developer-form");
+  // res.render("forms/developer-form");
+  res.render("items/developer.ejs", {title: "rice"});
 }
 
 module.exports = { getDevelopersPage, getForm };
