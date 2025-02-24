@@ -3,7 +3,7 @@ function getGamesPage(req, res) {
 }
 
 function getForm(req, res) {
-  res.render("forms/games-form");
+  res.render("forms/game-form");
 }
 
 module.exports = { getGamesPage, getForm };
