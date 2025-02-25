@@ -5,8 +5,9 @@ async function getGamesPage(req, res) {
   res.render("pages/games", {gamesData} );
 }
 
-function getForm(req, res) {
-  res.render("forms/game-form");
+async function getForm(req, res) {
+  const allGenres = await db.getAllGenres()
+  res.render("forms/game-form", {allGenres});
 }
 
 function getItem(req, res) {

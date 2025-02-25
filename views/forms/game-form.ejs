@@ -16,10 +16,6 @@
             <input type="text" >
         </div>
         <div>
-            <label for="">Description</label>
-            <textarea name="" id=""></textarea>
-        </div>
-        <div>
             <label for="">Quantity*</label>
             <input type="text" >
         </div>
@@ -28,7 +24,12 @@
     <section>
         <h3>Genre</h3>
         <div>
-            <select name="" id=""></select>
+            <select name="genre" id="genre">
+                <option value="">--Please select a genre--</option>
+                <% allGenres.forEach((genre) => {%>
+                    <option value="<%= genre.name %>"><%= genre.name %></option>
+                <%})%>
+            </select>
         </div>
     </section>
     <section>
