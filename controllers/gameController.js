@@ -6,4 +6,8 @@ function getForm(req, res) {
   res.render("forms/game-form");
 }
 
-module.exports = { getGamesPage, getForm };
+function getItem(req, res) {
+  res.render("items/game-item", { title: "game" });
+}
+
+module.exports = { getGamesPage, getForm, getItem };

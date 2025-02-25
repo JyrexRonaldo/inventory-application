@@ -4,7 +4,7 @@ function getDevelopersPage(req, res) {
 
 function getForm(req, res) {
   // res.render("forms/developer-form");
-  res.render("items/developer.ejs", {title: "rice"});
+  res.render("items/developer-item.ejs", {title: "game"});
 }
 
 module.exports = { getDevelopersPage, getForm };

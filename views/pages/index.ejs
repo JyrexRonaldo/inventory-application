@@ -11,9 +11,9 @@
     <div>
         <h2>Welcome to games inventory</h2>
         <p>Manage your games efficiently with our system</p>
-        <%- include("../partials/summary-card", {item: "Games", number: 0, description: "Total in inventory"}) %>
-        <%- include("../partials/summary-card", {item: "Developers", number: 0, description: "Registered developers"}) %>
-        <%- include("../partials/summary-card", {item: "Genres", number: 0, description: "Available categories"}) %>
+        <%- include("../partials/summary-card", {item: "Games", number: gameCount, description: "Total in inventory"}) %>
+        <%- include("../partials/summary-card", {item: "Developers", number: developerCount, description: "Registered developers"}) %>
+        <%- include("../partials/summary-card", {item: "Genres", number: genreCount, description: "Available categories"}) %>
     </div>
     <div>
         <h2>Quick Actions</h2>
