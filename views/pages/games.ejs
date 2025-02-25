@@ -19,6 +19,17 @@
                     <th>ACTIONS</th>
                 </tr>
             </thead>
+            <tbody>
+                <% gamesData.forEach((data) => { %>
+                        <tr>
+                            <td><%= data.title %></td>
+                            <td><%= data.developers %></td>
+                            <td><%= data.genre %></td>
+                            <td><%= data.quantity %></td>
+                            <td>ACTION</td>
+                        </tr>
+                    <% }) %>
+            </tbody>
 
         </table>
 </body>

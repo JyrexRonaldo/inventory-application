@@ -1,5 +1,8 @@
-function getGamesPage(req, res) {
-  res.render("pages/games");
+const db = require("../db/queries")
+
+async function getGamesPage(req, res) {
+  const gamesData = await db.getGamesPageInfo()
+  res.render("pages/games", {gamesData} );
 }
 
 function getForm(req, res) {
