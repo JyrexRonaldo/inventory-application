@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Game - Games Inventory</title>
 </head>
-<body>
-    <%- include("../partials/header", {title: "Add New Game"})%>
- <h2>Add New Game</h2>
- <form action="">
-    <section>
-        <h3>Game Details</h3>
-        <div>
-            <label for="">Title*</label>
-            <input type="text" >
-        </div>
-        <div>
-            <label for="">Quantity*</label>
-            <input type="text" >
-        </div>
 
-    </section>
-    <section>
-        <h3>Genre</h3>
-        <div>
-            <select name="genre" id="genre">
-                <option value="">--Please select a genre--</option>
-                <% allGenres.forEach((genre) => {%>
-                    <option value="<%= genre.name %>"><%= genre.name %></option>
-                <%})%>
-            </select>
-        </div>
-    </section>
-    <section>
-        <h3>Developers</h3>
-        <div>
-            <label for=""><input type="checkbox">developer name</label>
-        </div>
-    </section>
-    <div><button>Cancel</button><button>Create Game</button></div>
- </form>
+<body>
+    <%- include("../partials/header", {title: "Add New Game" })%>
+        <h2>Add New Game</h2>
+        <form action="">
+            <section>
+                <h3>Game Details</h3>
+                <div>
+                    <label for="">Title</label>
+                    <input type="text">
+                </div>
+                <div>
+                    <label for="">Release date</label>
+                    <input type="date">
+                </div>
+                <div>
+                    <label for="">Quantity</label>
+                    <input type="text">
+                </div>
+
+            </section>
+            <section>
+                <h3>Genre</h3>
+                <div>
+                    <select name="genre" id="genre">
+                        <option value="">--Please select a genre--</option>
+                        <% allGenres.forEach((genre)=> {%>
+                            <option value="<%= genre.name %>">
+                                <%= genre.name %>
+                            </option>
+                            <%})%>
+                    </select>
+                </div>
+            </section>
+            <section>
+                <h3>Developers</h3>
+                <% allDevelopers.forEach((developer)=> {%>
+                    <span>
+                        <label for="<%= developer.name %>">
+                            <input id="<%= developer.name %>" name="developer" type="checkbox">
+                            <%= developer.name %>
+                        </label>
+                    </span>
+                    <%})%>
+
+
+
+            </section>
+            <div><button>Cancel</button><button>Create Game</button></div>
+        </form>
 </body>
+
 </html>

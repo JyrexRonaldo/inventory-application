@@ -1,13 +1,14 @@
-const db = require("../db/queries")
+const db = require("../db/queries");
 
 async function getGamesPage(req, res) {
-  const gamesData = await db.getGamesPageInfo()
-  res.render("pages/games", {gamesData} );
+  const gamesData = await db.getGamesPageInfo();
+  res.render("pages/games", { gamesData });
 }
 
 async function getForm(req, res) {
-  const allGenres = await db.getAllGenres()
-  res.render("forms/game-form", {allGenres});
+  const allGenres = await db.getAllGenres();
+  const allDevelopers = await db.getAllDevelopers();
+  res.render("forms/game-form", { allGenres, allDevelopers });
 }
 
 function getItem(req, res) {
