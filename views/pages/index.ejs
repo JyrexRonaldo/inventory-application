@@ -17,9 +17,9 @@
     </div>
     <div>
         <h2>Quick Actions</h2>
-        <%- include("../partials/quick-action", {action: "Add New Game", description: "Add a new game to inventory"}) %>
-        <%- include("../partials/quick-action", {action: "Add New Developer", description: "Add a new developer profile"}) %>
-        <%- include("../partials/quick-action", {action: "Add New Genre", description: "Create a new game genre"}) %>
+        <a href="/games/add"><%- include("../partials/quick-action", {action: "Add New Game", description: "Add a new game to inventory"}) %></a>
+        <a href="/developers/add"><%- include("../partials/quick-action", {action: "Add New Developer", description: "Add a new developer profile"}) %></a>
+        <a href="/genres/add"><%- include("../partials/quick-action", {action: "Add New Genre", description: "Create a new game genre"}) %></a>
     </div>
     <div><h2>Getting Started</h2>
         <p>Add games to your inventory using the "Add New Game" button</p>
