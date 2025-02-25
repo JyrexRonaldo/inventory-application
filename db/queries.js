@@ -37,6 +37,10 @@ async function getAllGenres() {
   return rows;
 }
 
+async function addNewGenre(name) {
+  await pool.query("INSERT INTO genres (name) VALUES ($1);", [name])
+}
+
 module.exports = {
   getGamesCount,
   getDevelopersCount,
@@ -44,4 +48,5 @@ module.exports = {
   getGamesPageInfo,
   getAllDevelopers,
   getAllGenres,
+  addNewGenre,
 };

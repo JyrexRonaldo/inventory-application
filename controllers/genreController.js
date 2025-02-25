@@ -1,13 +1,18 @@
-const db = require("../db/queries")
+const db = require("../db/queries");
 
 async function getGenrePage(req, res) {
-  const genresData = await db.getAllGenres()
-    res.render("pages/genres", {genresData});
-  }
+  const genresData = await db.getAllGenres();
+  res.render("pages/genres", { genresData });
+}
 
-  function getForm(req, res) {
+function getForm(req, res) {
   res.render("forms/genre-form");
-  }
-  
-  module.exports = { getGenrePage, getForm };
-  
+}
+
+async function addNewGenre(req, res) {
+  // console.log(typeof req.body.genreName)
+  await db.addNewGenre(req.body.genreName)
+  res.redirect("/genres");
+}
+
+module.exports = { getGenrePage, getForm, addNewGenre };

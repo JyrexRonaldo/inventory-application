@@ -6,8 +6,7 @@ async function getDevelopersPage(req, res) {
 }
 
 function getForm(req, res) {
-  // res.render("forms/developer-form");
-  res.render("items/developer-item.ejs", {title: "game"});
+  res.render("forms/developer-form");
 }
 
 module.exports = { getDevelopersPage, getForm };
