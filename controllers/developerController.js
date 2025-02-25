@@ -2,7 +2,6 @@
 
 async function getDevelopersPage(req, res) {
   const developersData = await db.getDevelopersPageInfo()
-  console.log(developersData)
   res.render("pages/developers", {developersData});
 }
 

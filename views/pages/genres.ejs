@@ -13,11 +13,17 @@
             <thead>
                 <tr>
                     <th>NAME</th>
-                    <th>DESCRIPTION</th>
-                    <th>BOOKS</th>
                     <th>ACTIONS</th>
                 </tr>
             </thead>
+            <tbody>
+                <% genresData.forEach((genre) => {%>
+                    <tr>
+                        <td><%= genre.name %></td>
+                        <td>Actions</td>
+                    </tr>
+                <%})%>
+            </tbody>
         </table>
 </body>
 

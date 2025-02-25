@@ -32,10 +32,16 @@ async function getDevelopersPageInfo() {
   return rows;
 }
 
+async function getGenresPageInfo() {
+  const { rows } = await pool.query("SELECT * FROM genres;");
+  return rows;
+}
+
 module.exports = {
   getGamesCount,
   getDevelopersCount,
   getGenresCount,
   getGamesPageInfo,
   getDevelopersPageInfo,
+  getGenresPageInfo,
 };

@@ -1,5 +1,8 @@
-function getGenrePage(req, res) {
-    res.render("pages/genres");
+const db = require("../db/queries")
+
+async function getGenrePage(req, res) {
+  const genresData = await db.getGenresPageInfo()
+    res.render("pages/genres", {genresData});
   }
 
   function getForm(req, res) {
