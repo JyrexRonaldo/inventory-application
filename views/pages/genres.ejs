@@ -8,7 +8,11 @@
 </head>
 
 <body>
-    <%- include("../partials/header", {title: "Genres" } )%>
+    <%- include("../partials/header")%>
+        <div>
+            <h3>Genres</h3>
+            <a href="/genres/add"><button type="button">Add New Genre</button></a>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -17,12 +21,14 @@
                 </tr>
             </thead>
             <tbody>
-                <% genresData.forEach((genre) => {%>
+                <% genresData.forEach((genre)=> {%>
                     <tr>
-                        <td><%= genre.name %></td>
-                        <td>Actions</td>
+                        <td>
+                            <%= genre.name %>
+                        </td>
+                        <td><%- include("../partials/actions") %></td>
                     </tr>
-                <%})%>
+                    <%})%>
             </tbody>
         </table>
 </body>

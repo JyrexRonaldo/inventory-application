@@ -1,7 +1,7 @@
 const db = require("../db/queries")
 
 async function getGenrePage(req, res) {
-  const genresData = await db.getGenresPageInfo()
+  const genresData = await db.getAllGenres()
     res.render("pages/genres", {genresData});
   }
 

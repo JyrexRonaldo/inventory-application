@@ -8,7 +8,11 @@
 </head>
 
 <body>
-    <%- include("../partials/header", {title: "Games" } )%>
+    <%- include("../partials/header")%>
+        <div>
+            <h3>Games</h3>
+            <a href="/games/add"><button type="button">Add New Game</button></a>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -20,14 +24,22 @@
                 </tr>
             </thead>
             <tbody>
-                <% gamesData.forEach((data) => { %>
-                        <tr>
-                            <td><%= data.title %></td>
-                            <td><%= data.developers %></td>
-                            <td><%= data.genre %></td>
-                            <td><%= data.quantity %></td>
-                            <td>ACTION</td>
-                        </tr>
+                <% gamesData.forEach((data)=> { %>
+                    <tr>
+                        <td>
+                            <%= data.title %>
+                        </td>
+                        <td>
+                            <%= data.developers %>
+                        </td>
+                        <td>
+                            <%= data.genre %>
+                        </td>
+                        <td>
+                            <%= data.quantity %>
+                        </td>
+                        <td><%- include("../partials/actions") %></td>
+                    </tr>
                     <% }) %>
             </tbody>
 

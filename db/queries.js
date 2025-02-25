@@ -27,12 +27,12 @@ async function getGamesPageInfo() {
   return rows;
 }
 
-async function getDevelopersPageInfo() {
+async function getAllDevelopers() {
   const { rows } = await pool.query("SELECT * FROM developers;");
   return rows;
 }
 
-async function getGenresPageInfo() {
+async function getAllGenres() {
   const { rows } = await pool.query("SELECT * FROM genres;");
   return rows;
 }
@@ -42,6 +42,6 @@ module.exports = {
   getDevelopersCount,
   getGenresCount,
   getGamesPageInfo,
-  getDevelopersPageInfo,
-  getGenresPageInfo,
+  getAllDevelopers,
+  getAllGenres,
 };

@@ -1,7 +1,7 @@
  const db = require("../db/queries")
 
 async function getDevelopersPage(req, res) {
-  const developersData = await db.getDevelopersPageInfo()
+  const developersData = await db.getAllDevelopers()
   res.render("pages/developers", {developersData});
 }
 
