@@ -9,4 +9,10 @@ function getForm(req, res) {
   res.render("forms/developer-form");
 }
 
-module.exports = { getDevelopersPage, getForm };
+async function addNewDeveloper(req,res) {
+  const {name, country, headquaters, website}  = req.body;
+  await db.addNewDeveloper(name, country, headquaters, website)
+  res.redirect("/developers")
+}
+
+module.exports = { getDevelopersPage, getForm, addNewDeveloper };

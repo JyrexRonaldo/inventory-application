@@ -38,7 +38,13 @@ async function getAllGenres() {
 }
 
 async function addNewGenre(name) {
-  await pool.query("INSERT INTO genres (name) VALUES ($1);", [name])
+  await pool.query("INSERT INTO genres (name) VALUES ($1);", [name]);
+}
+
+async function addNewDeveloper(name, country, headquaters, website) {
+  await pool.query(`INSERT INTO developers (name, country, headquaters, website) 
+VALUES
+  ($1,$2,$3,$4)`, [name, country, headquaters, website]);
 }
 
 module.exports = {
@@ -49,4 +55,5 @@ module.exports = {
   getAllDevelopers,
   getAllGenres,
   addNewGenre,
+  addNewDeveloper,
 };

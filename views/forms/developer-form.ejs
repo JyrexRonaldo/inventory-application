@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Developer</title>
 </head>
+
 <body>
     <%- include("../partials/header", {title: "Add New Developer" })%>
-    <h2>Add New Developer</h2>
-    <div>
-        <label for="">Name</label>
-        <input type="text" name="" id="">
-    </div>
-    <div>
-        <label for="">Country</label>
-        <input type="text" name="" id="">
-    </div>
-    <div>
-        <label for="">Headquaters</label>
-        <input type="text" name="" id="">
-    </div>
-    <div>
-        <label for="">Website</label>
-        <input type="text" name="" id="">
-    </div>
-    <div>
-        <button>Cancel</button>
-        <button>Create Author</button>
-    </div>
+        <h2>Add New Developer</h2>
+        <form action="/developers/add" method="post">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="country">Country</label>
+                <input type="text" name="country" id="country">
+            </div>
+            <div>
+                <label for="headquaters">Headquaters</label>
+                <input type="text" name="headquaters" id="headquaters">
+            </div>
+            <div>
+                <label for="website">Website</label>
+                <input type="text" name="website" id="website">
+            </div>
+            <div>
+                <button>Cancel</button>
+                <button type="submit">Create Developer</button>
+            </div>
+        </form>
+
 </body>
+
 </html>
