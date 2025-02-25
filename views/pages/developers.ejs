@@ -13,11 +13,23 @@
             <thead>
                 <tr>
                     <th>NAME</th>
-                    <th>BIO</th>
-                    <th>GAMES</th>
+                    <th>COUNTRY</th>
+                    <th>HEADQUATERS</th>
+                    <th>WEBSITE</th>
                     <th>ACTIONS</th>
                 </tr>
             </thead>
+            <tbody>
+                <% developersData.forEach( (developer) => {%>
+                    <tr>
+                        <td><%= developer.name %></td>
+                        <td><%= developer.country %></td>
+                        <td><%= developer.headquaters %></td>
+                        <td><a href=<%= developer.website %>><%= developer.website %></a></td>
+                        <td>action</td>
+                    </tr>
+                <%})%>
+            </tbody>
         </table>
 </body>
 

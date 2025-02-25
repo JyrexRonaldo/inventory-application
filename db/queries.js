@@ -16,7 +16,19 @@ async function getGenresCount() {
 }
 
 async function getGamesPageInfo() {
-  const { rows } = await pool.query("SELECT g.title, d.name AS developers, ge.name AS genre, g.quantity FROM games as g INNER JOIN games_developers as gd ON g.id = gd.game_id INNER JOIN developers as d ON gd.developer_id = d.id INNER JOIN games_genres AS gg  ON g.id = gg.game_id INNER JOIN genres AS ge ON gg.genre_id = ge.id;");
+  const { rows } = await pool.query(
+    `SELECT g.title, d.name AS developers, ge.name AS genre, g.quantity 
+    FROM games as g 
+    INNER JOIN games_developers as gd ON g.id = gd.game_id 
+    INNER JOIN developers as d ON gd.developer_id = d.id 
+    INNER JOIN games_genres AS gg  ON g.id = gg.game_id 
+    INNER JOIN genres AS ge ON gg.genre_id = ge.id;`
+  );
+  return rows;
+}
+
+async function getDevelopersPageInfo() {
+  const { rows } = await pool.query("SELECT * FROM developers;");
   return rows;
 }
 
@@ -24,5 +36,6 @@ module.exports = {
   getGamesCount,
   getDevelopersCount,
   getGenresCount,
-  getGamesPageInfo
+  getGamesPageInfo,
+  getDevelopersPageInfo,
 };
