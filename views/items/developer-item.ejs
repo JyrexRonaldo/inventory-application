@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= developerItem.title %> - Games Inventory
+    </title>
 </head>
+
 <body>
-    <%- include("../partials/header", {title: title } )%>
-    <div>
-        <h3><%= title %></h3>
-        <div><button>Edit Developer</button><button>Delete Developer</button></div>
+    <%- include("../partials/header")%>
         <div>
-            <h3>Details</h3>
-            <p>Country:</p>
-            <p>Headquaters:</p>
-            <p>Website:</p>
+            <h3>
+                <%= developerItem.name %>
+            </h3>
+            <div><button>Edit Developer</button><button>Delete Developer</button></div>
+            <div>
+                <h3>Details</h3>
+                <p>Country: <%= developerItem.country %></p>
+                <p>Headquaters: <%= developerItem.headquaters %></p>
+                <p>Website: <%= developerItem.website %></p>
+            </div>
         </div>
-    </div>
 </body>
+
 </html>

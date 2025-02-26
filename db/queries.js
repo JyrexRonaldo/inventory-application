@@ -80,6 +80,11 @@ async function getGameItem(gameId) {
     WHERE g.id = $1;`,
     [gameId]
   );
+  return rows[0];
+}
+
+async function getDeveloperItem(developerId) {
+  const { rows } = await pool.query(`SELECT * FROM developers WHERE developers.id = $1;`, [developerId]);
   return rows[0]
 }
 
@@ -94,4 +99,5 @@ module.exports = {
   addNewDeveloper,
   addNewGame,
   getGameItem,
+  getDeveloperItem,
 };

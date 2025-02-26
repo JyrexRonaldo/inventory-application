@@ -10,7 +10,6 @@ function getForm(req, res) {
 }
 
 async function addNewGenre(req, res) {
-  // console.log(typeof req.body.genreName)
   await db.addNewGenre(req.body.genreName)
   res.redirect("/genres");
 }

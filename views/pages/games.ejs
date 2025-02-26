@@ -38,7 +38,7 @@
                         <td>
                             <%= data.quantity %>
                         </td>
-                        <td><%- include("../partials/actions", {id: data.id}) %></td>
+                        <td><%- include("../partials/actions", {id: data.id, parentRoute: "games"}) %></td>
                     </tr>
                     <% }) %>
             </tbody>

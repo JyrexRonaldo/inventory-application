@@ -15,4 +15,9 @@ async function addNewDeveloper(req,res) {
   res.redirect("/developers")
 }
 
-module.exports = { getDevelopersPage, getForm, addNewDeveloper };
+async function getItem(req,res) {
+    const developerItem = await db.getDeveloperItem(req.params.developerItem)
+   res.render("items/developer-item", {developerItem}) 
+}
+
+module.exports = { getDevelopersPage, getForm, addNewDeveloper, getItem };

@@ -26,7 +26,7 @@
                         <td>
                             <%= genre.name %>
                         </td>
-                        <td><%- include("../partials/actions") %></td>
+                        <td><%- include("../partials/actions", {id: genre.id, parentRoute: "genres"}) %></td>
                     </tr>
                     <%})%>
             </tbody>

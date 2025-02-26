@@ -7,5 +7,6 @@ developerRouter
   .route("/add")
   .get(developerController.getForm)
   .post(developerController.addNewDeveloper);
+  developerRouter.get("/:developerItem", developerController.getItem)
 
 module.exports = developerRouter;

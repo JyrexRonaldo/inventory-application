@@ -36,7 +36,7 @@
                             <%= developer.headquaters %>
                         </td>
                         <td><a href=<%=developer.website %>><%= developer.website %></a></td>
-                        <td><%- include("../partials/actions") %></td>
+                        <td><%- include("../partials/actions", {id: developer.id, parentRoute: "developers"}) %></td>
                     </tr>
                     <%})%>
             </tbody>
