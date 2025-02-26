@@ -7,6 +7,6 @@ gameRouter
   .route("/add")
   .get(gameController.getForm)
   .post(gameController.addNewGame);
-gameRouter.get("/item", gameController.getItem);
+gameRouter.get("/:gameId", gameController.getItem);
 
 module.exports = gameRouter;

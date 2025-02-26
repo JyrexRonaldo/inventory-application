@@ -11,8 +11,9 @@ async function getForm(req, res) {
   res.render("forms/game-form", { allGenres, allDevelopers });
 }
 
-function getItem(req, res) {
-  res.render("items/game-item", { title: "game" });
+async function getItem(req, res) {
+  const gameItem = await db.getGameItem(req.params.gameId)
+  res.render("items/game-item", { gameItem });
 }
 
 async function addNewGame(req, res) {

@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>
+        <%= gameItem.title %> - Games Inventory
+    </title>
 </head>
+
 <body>
-    <%- include("../partials/header", {title: title } )%>
-    <div>
-        <h3><%= title %></h3>
-        <div><button>Edit Game</button><button>Delete Game</button></div>
+    <%- include("../partials/header")%>
         <div>
-            <h3>Details</h3>
-            <p>Release date:</p>
-            <p>Quantity:</p>
-            
+
+            <div>
+                <h3>
+                    <%= gameItem.title %>
+                </h3>
+                <button>Edit Game</button>
+                <button>Delete Game</button>
+            </div>
+            <div>
+                <h3>Details</h3>
+                <p>Release date: <%= new Date(gameItem.release_date).toLocaleDateString() %></p>
+                <p>Quantity in Stock: <%= gameItem.quantity %></p>
+                <p>Genre: <%= gameItem.genre %></p>
+                <p>Developer: <%= gameItem.developers %></p>
+            </div>
         </div>
-    </div>
 </body>
+
 </html>
