@@ -42,9 +42,31 @@ async function addNewGenre(name) {
 }
 
 async function addNewDeveloper(name, country, headquaters, website) {
-  await pool.query(`INSERT INTO developers (name, country, headquaters, website) 
+  await pool.query(
+    `INSERT INTO developers (name, country, headquaters, website) 
 VALUES
-  ($1,$2,$3,$4)`, [name, country, headquaters, website]);
+  ($1,$2,$3,$4)`,
+    [name, country, headquaters, website]
+  );
+}
+
+async function addNewGame(title, releaseDate, quantity, genre, developer) {
+  await pool.query(
+    `INSERT INTO games (title, release_date, quantity) VALUES ($1, $2, $3)`,
+    [title, releaseDate, quantity]
+  );
+  const { rows } = await pool.query(
+    "SELECT games_id_seq.last_value FROM games_id_seq;"
+  );
+  const newGameId = +rows[0].last_value;
+  await pool.query(
+    "INSERT INTO games_genres (game_id, genre_id) VALUES ($1,$2)",
+    [newGameId, genre]
+  );
+  await pool.query(
+    `INSERT INTO games_developers (game_id, developer_id) VALUES ($1,$2);`,
+    [newGameId, developer]
+  );
 }
 
 module.exports = {
@@ -56,4 +78,5 @@ module.exports = {
   getAllGenres,
   addNewGenre,
   addNewDeveloper,
+  addNewGame,
 };

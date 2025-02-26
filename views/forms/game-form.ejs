@@ -8,22 +8,22 @@
 </head>
 
 <body>
-    <%- include("../partials/header", {title: "Add New Game" })%>
+    <%- include("../partials/header")%>
         <h2>Add New Game</h2>
-        <form action="">
+        <form action="/games/add" method="POST">
             <section>
                 <h3>Game Details</h3>
                 <div>
-                    <label for="">Title</label>
-                    <input type="text">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
                 </div>
                 <div>
-                    <label for="">Release date</label>
-                    <input type="date">
+                    <label for="releaseDate">Release date</label>
+                    <input type="date" id="releaseDate" name="releaseDate">
                 </div>
                 <div>
-                    <label for="">Quantity</label>
-                    <input type="text">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id="quantity" name="quantity">
                 </div>
 
             </section>
@@ -33,7 +33,7 @@
                     <select name="genre" id="genre">
                         <option value="">--Please select a genre--</option>
                         <% allGenres.forEach((genre)=> {%>
-                            <option value="<%= genre.name %>">
+                            <option value="<%= genre.id %>">
                                 <%= genre.name %>
                             </option>
                             <%})%>
@@ -45,16 +45,13 @@
                 <% allDevelopers.forEach((developer)=> {%>
                     <span>
                         <label for="<%= developer.name %>">
-                            <input id="<%= developer.name %>" name="developer" type="checkbox">
+                            <input id="<%= developer.name %>" name="developer" type="checkbox" value="<%= developer.id %>">
                             <%= developer.name %>
                         </label>
                     </span>
                     <%})%>
-
-
-
             </section>
-            <div><button>Cancel</button><button>Create Game</button></div>
+            <div><button>Cancel</button><button type="submit">Create Game</button></div>
         </form>
 </body>
 

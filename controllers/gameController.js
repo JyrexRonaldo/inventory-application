@@ -15,4 +15,10 @@ function getItem(req, res) {
   res.render("items/game-item", { title: "game" });
 }
 
-module.exports = { getGamesPage, getForm, getItem };
+async function addNewGame(req, res) {
+  const { title, releaseDate, quantity, genre, developer } = req.body;
+  await db.addNewGame(title, releaseDate, quantity, genre, developer)
+  res.redirect("/games");
+}
+
+module.exports = { getGamesPage, getForm, getItem, addNewGame };
