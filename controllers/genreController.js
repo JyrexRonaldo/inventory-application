@@ -16,8 +16,19 @@ async function addNewGenre(req, res) {
 
 async function getItem(req,res) {
   const genreItem = await db.getGenreItem(req.params.genreId)
-  res.render("items/genre-item", {genreItem})
-  
+  res.render("items/genre-item", {genreItem}) 
 }
 
-module.exports = { getGenrePage, getForm, addNewGenre, getItem };
+async function getEditForm(req, res) {
+  const genreItem = await db.getGenreItem(req.params.genreId)
+  res.render("forms/genre-form", {edit : true, genreItem})
+}
+
+async function editGenre(req,res) {
+  const newGenreInfo =  req.body.genreName
+  const genreId = req.params.genreId
+  db.editGenre(newGenreInfo, genreId)
+  res.redirect(`/genres/${genreId}`)
+}
+
+module.exports = { getGenrePage, getForm, addNewGenre, getItem, getEditForm, editGenre };

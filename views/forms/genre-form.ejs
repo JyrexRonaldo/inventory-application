@@ -8,16 +8,25 @@
 </head>
 
 <body>
-    <%- include("../partials/header", {title: "Add New Genre" })%>
-        <h2>Add New Genre</h2>
-        <form action="/genres/add" method="post">
+    <%- include("../partials/header")%>
+    <%if (edit===true ) {%>
+        <h2>Edit Genre</h2>
+        <form action="/genres/<%= genreItem.id %>/edit" method="post">
+        <%} else { %>
+            <h2>Add New Genre</h2>
+            <form action="/genres/add" method="post">
+            <%}%>
             <div>
                 <label for="genreName">Name</label>
-                <input id="genreName" name="genreName" type="text">
+                <input id="genreName" name="genreName" type="text" value="<%= genreItem.name  %>">
             </div>
             <div>
                 <button>Cancel</button>
-                <button type="submit">Create Genre</button>
+                <%if (edit===true ) {%>
+                    <button type="submit">Save Changes</button>
+                    <%} else { %>
+                        <button type="submit">Create Genre</button>
+                        <% }%>
             </div>
         </form>
 </body>

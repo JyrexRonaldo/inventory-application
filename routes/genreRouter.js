@@ -7,6 +7,10 @@ genreRouter
   .route("/add")
   .get(genreController.getForm)
   .post(genreController.addNewGenre);
-  genreRouter.get("/:genreId", genreController.getItem)
+genreRouter.get("/:genreId", genreController.getItem);
+genreRouter
+  .route("/:genreId/edit")
+  .get(genreController.getEditForm)
+  .post(genreController.editGenre);
 
 module.exports = genreRouter;

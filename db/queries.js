@@ -93,6 +93,10 @@ async function getGenreItem(genreId) {
   return rows[0]
 }
 
+async function editGenre(newInfo, genreId) {
+  await pool.query(`UPDATE genres SET name = $1 WHERE genres.id = $2;`, [newInfo, genreId])
+}
+
 module.exports = {
   getGamesCount,
   getDevelopersCount,
@@ -106,4 +110,5 @@ module.exports = {
   getGameItem,
   getDeveloperItem,
   getGenreItem,
+  editGenre,
 };
