@@ -6,7 +6,7 @@ async function getDevelopersPage(req, res) {
 }
 
 function getForm(req, res) {
-  res.render("forms/developer-form");
+  res.render("forms/developer-form", {edit: false});
 }
 
 async function addNewDeveloper(req,res) {
@@ -20,4 +20,16 @@ async function getItem(req,res) {
    res.render("items/developer-item", {developerItem}) 
 }
 
-module.exports = { getDevelopersPage, getForm, addNewDeveloper, getItem };
+async function getEditForm(req,res) {
+  const developerItem = await db.getDeveloperItem(req.params.developerId)
+  res.render("forms/developer-form", { edit: true, developerItem })
+}
+
+async function editDeveloper(req,res) {
+  const newDeveloperInfo = req.body
+  const developerId = req.params.developerId
+  await db.editDeveloper(newDeveloperInfo, developerId)
+  res.redirect(`/developers/${developerId}`)
+}
+
+module.exports = { getDevelopersPage, getForm, addNewDeveloper, getItem, getEditForm, editDeveloper };

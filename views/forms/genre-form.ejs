@@ -18,7 +18,11 @@
             <%}%>
             <div>
                 <label for="genreName">Name</label>
-                <input id="genreName" name="genreName" type="text" value="<%= genreItem.name  %>">
+                <%if (edit===true ) {%>
+                    <input id="genreName" name="genreName" type="text" value="<%= genreItem.name  %>">    
+                    <%} else { %>
+                        <input id="genreName" name="genreName" type="text">
+                        <% }%>
             </div>
             <div>
                 <button>Cancel</button>

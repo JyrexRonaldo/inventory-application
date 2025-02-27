@@ -84,17 +84,39 @@ async function getGameItem(gameId) {
 }
 
 async function getDeveloperItem(developerId) {
-  const { rows } = await pool.query(`SELECT * FROM developers WHERE developers.id = $1;`, [developerId]);
-  return rows[0]
+  const { rows } = await pool.query(
+    `SELECT * FROM developers WHERE developers.id = $1;`,
+    [developerId]
+  );
+  return rows[0];
 }
 
 async function getGenreItem(genreId) {
-  const { rows } = await pool.query("SELECT * FROM genres WHERE genres.id = $1;", [genreId])
-  return rows[0]
+  const { rows } = await pool.query(
+    "SELECT * FROM genres WHERE genres.id = $1;",
+    [genreId]
+  );
+  return rows[0];
 }
 
 async function editGenre(newInfo, genreId) {
-  await pool.query(`UPDATE genres SET name = $1 WHERE genres.id = $2;`, [newInfo, genreId])
+  await pool.query(`UPDATE genres SET name = $1 WHERE genres.id = $2;`, [
+    newInfo,
+    genreId,
+  ]);
+}
+
+async function editDeveloper(newInfo, genreId) {
+  await pool.query(
+    `UPDATE developers SET name = $1, country = $2, headquaters = $3, website = $4  WHERE developers.id = $5;`,
+    [
+      newInfo.name,
+      newInfo.country,
+      newInfo.headquaters,
+      newInfo.website,
+      genreId
+    ]
+  );
 }
 
 module.exports = {
@@ -111,4 +133,5 @@ module.exports = {
   getDeveloperItem,
   getGenreItem,
   editGenre,
+  editDeveloper,
 };

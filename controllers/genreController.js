@@ -6,7 +6,7 @@ async function getGenrePage(req, res) {
 }
 
 function getForm(req, res) {
-  res.render("forms/genre-form");
+  res.render("forms/genre-form", {edit: false});
 }
 
 async function addNewGenre(req, res) {

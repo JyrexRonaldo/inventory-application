@@ -9,27 +9,54 @@
 
 <body>
     <%- include("../partials/header", {title: "Add New Developer" })%>
+    <% if (edit === true) {%>
+        <h2>Edit Developer</h2>
+        <form action="/developers/<%= developerItem.id %>/edit" method="post">
+    <%} else {  %>
         <h2>Add New Developer</h2>
         <form action="/developers/add" method="post">
+    <% } %>
             <div>
                 <label for="name">Name</label>
-                <input type="text" name="name" id="name">
+                <% if (edit === true) {%>
+                    <input type="text" name="name" id="name" value="<%= developerItem.name %>">
+                <%} else {  %>                    
+                    <input type="text" name="name" id="name">
+                <% } %>
             </div>
             <div>
                 <label for="country">Country</label>
-                <input type="text" name="country" id="country">
+                <% if (edit === true) {%>
+                    <input type="text" name="country" id="country" value="<%= developerItem.country %>">
+                <%} else {  %>                    
+                    <input type="text" name="country" id="country">
+                <% } %>
+                
             </div>
             <div>
                 <label for="headquaters">Headquaters</label>
-                <input type="text" name="headquaters" id="headquaters">
+                <% if (edit === true) {%>
+                    <input type="text" name="headquaters" id="headquaters" value="<%= developerItem.headquaters%>">
+                <%} else {  %>                    
+                    <input type="text" name="headquaters" id="headquaters">
+                <% } %>
+                
             </div>
             <div>
                 <label for="website">Website</label>
-                <input type="text" name="website" id="website">
+                <% if (edit === true) {%>
+                    <input type="text" name="website" id="website" value="<%= developerItem.website%>">
+                <%} else {  %>                    
+                    <input type="text" name="website" id="website">
+                <% } %>
             </div>
             <div>
                 <button>Cancel</button>
-                <button type="submit">Create Developer</button>
+                <%if (edit===true ) {%>
+                    <button type="submit">Save Changes</button>
+                    <%} else { %>
+                        <button type="submit">Create Genre</button>
+                        <% }%>
             </div>
         </form>
 
