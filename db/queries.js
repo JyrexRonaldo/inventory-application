@@ -88,6 +88,11 @@ async function getDeveloperItem(developerId) {
   return rows[0]
 }
 
+async function getGenreItem(genreId) {
+  const { rows } = await pool.query("SELECT * FROM genres WHERE genres.id = $1;", [genreId])
+  return rows[0]
+}
+
 module.exports = {
   getGamesCount,
   getDevelopersCount,
@@ -100,4 +105,5 @@ module.exports = {
   addNewGame,
   getGameItem,
   getDeveloperItem,
+  getGenreItem,
 };

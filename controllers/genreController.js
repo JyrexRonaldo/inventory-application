@@ -14,4 +14,10 @@ async function addNewGenre(req, res) {
   res.redirect("/genres");
 }
 
-module.exports = { getGenrePage, getForm, addNewGenre };
+async function getItem(req,res) {
+  const genreItem = await db.getGenreItem(req.params.genreId)
+  res.render("items/genre-item", {genreItem})
+  
+}
+
+module.exports = { getGenrePage, getForm, addNewGenre, getItem };

@@ -16,7 +16,7 @@ async function addNewDeveloper(req,res) {
 }
 
 async function getItem(req,res) {
-    const developerItem = await db.getDeveloperItem(req.params.developerItem)
+    const developerItem = await db.getDeveloperItem(req.params.developerId)
    res.render("items/developer-item", {developerItem}) 
 }
 

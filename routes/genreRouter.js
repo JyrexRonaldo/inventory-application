@@ -7,5 +7,6 @@ genreRouter
   .route("/add")
   .get(genreController.getForm)
   .post(genreController.addNewGenre);
+  genreRouter.get("/:genreId", genreController.getItem)
 
 module.exports = genreRouter;
