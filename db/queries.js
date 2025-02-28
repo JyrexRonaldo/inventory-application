@@ -71,7 +71,7 @@ async function addNewGame(title, releaseDate, quantity, genre, developer) {
 
 async function getGameItem(gameId) {
   const { rows } = await pool.query(
-    `SELECT g.id, g.title, g.release_date, d.name AS developers, ge.name AS genre, g.quantity 
+    `SELECT g.id, g.title, g.release_date, d.name AS developers, ge.name AS genre, g.quantity, ge.id AS genreid
     FROM games as g
     INNER JOIN games_developers as gd ON g.id = gd.game_id 
     INNER JOIN developers as d ON gd.developer_id = d.id 
@@ -119,6 +119,12 @@ async function editDeveloper(newInfo, genreId) {
   );
 }
 
+async function editGame(newInfo, gameId) {
+  await pool.query(`UPDATE games SET title = $1, release_date = $2, quantity = $3 WHERE games.id = $4;`,[newInfo.name, newInfo.releaseDate, +newInfo.quantity, gameId])
+  await pool.query(`UPDATE games_genres SET genre_id = $1 WHERE game_id = $2;`, [newInfo.genre, gameId])
+  await pool.query(`UPDATE games_developers SET developer_id = $1 WHERE game_id = $2;`, [newInfo.developer, gameId])
+}
+
 module.exports = {
   getGamesCount,
   getDevelopersCount,
@@ -134,4 +140,5 @@ module.exports = {
   getGenreItem,
   editGenre,
   editDeveloper,
+  editGame,
 };

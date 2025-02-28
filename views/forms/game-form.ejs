@@ -9,21 +9,39 @@
 
 <body>
     <%- include("../partials/header")%>
-        <h2>Add New Game</h2>
-        <form action="/games/add" method="POST">
+    <%if (edit===true ) {%>
+        <h2>Edit Game</h2>
+        <form action="/games/<%= gameItem.id %>/edit" method="post">
+        <%} else { %>
+            <h2>Add New Game</h2>
+            <form action="/games/add" method="POST">
+            <%}%>
             <section>
                 <h3>Game Details</h3>
                 <div>
                     <label for="title">Title</label>
-                    <input type="text" id="title" name="title">
+                    <% if (edit === true) {%>
+                        <input type="text" name="name" id="name" value="<%= gameItem.title %>">
+                    <%} else {  %>                    
+                        <input type="text" id="title" name="title">
+                    <% } %>
+    
                 </div>
                 <div>
                     <label for="releaseDate">Release date</label>
-                    <input type="date" id="releaseDate" name="releaseDate">
+                    <% if (edit === true) {%>
+                        <input type="date" id="releaseDate" name="releaseDate" value="<%= gameItem.release_date.toISOString().slice(0,10) %>">
+                    <%} else {  %>                    
+                        <input type="date" id="releaseDate" name="releaseDate">
+                    <% } %>
                 </div>
                 <div>
                     <label for="quantity">Quantity</label>
-                    <input type="number" id="quantity" name="quantity">
+                    <% if (edit === true) {%>
+                        <input type="number" id="quantity" name="quantity" value="<%= gameItem.quantity %>">
+                    <%} else {  %>                    
+                        <input type="number" id="quantity" name="quantity">
+                    <% } %>
                 </div>
 
             </section>
@@ -31,7 +49,12 @@
                 <h3>Genre</h3>
                 <div>
                     <select name="genre" id="genre">
-                        <option value="">--Please select a genre--</option>
+                        <% if (edit === true) {%>
+                            <%console.log(gameItem.genreid )%>
+                            <option value="<%= gameItem.genreid %>"><%= gameItem.genre %></option>
+                        <%} else {  %>                    
+                            <option value="">--Please select a genre--</option>
+                        <% } %>
                         <% allGenres.forEach((genre)=> {%>
                             <option value="<%= genre.id %>">
                                 <%= genre.name %>
@@ -45,13 +68,24 @@
                 <% allDevelopers.forEach((developer)=> {%>
                     <span>
                         <label for="<%= developer.name %>">
-                            <input id="<%= developer.name %>" name="developer" type="checkbox" value="<%= developer.id %>">
+                            <%if (edit === true && developer.name === gameItem.developers) { %>
+                                <input id="<%= developer.name %>" name="developer" type="checkbox" value="<%= developer.id %>" checked>
+                            <%} else { %>
+                                <input id="<%= developer.name %>" name="developer" type="checkbox" value="<%= developer.id %>">
+                                <%}%>
                             <%= developer.name %>
                         </label>
                     </span>
                     <%})%>
             </section>
-            <div><button>Cancel</button><button type="submit">Create Game</button></div>
+            <div>
+                <button>Cancel</button>
+                <%if (edit === true) { %>
+                    <button type="submit">Save Changes</button>
+                    <%} else {%>
+                        <button type="submit">Create Game</button>
+                <%}%>
+            </div>
         </form>
 </body>
 
