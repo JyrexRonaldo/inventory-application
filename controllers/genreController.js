@@ -33,7 +33,6 @@ async function editGenre(req,res) {
 
 async function deleteGenre(req,res) {
   const genreId = req.params.genreId
-  // console.log(genreId)
   await db.deleteGenre(genreId)
   res.redirect("/genres")
 }

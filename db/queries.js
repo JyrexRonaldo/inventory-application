@@ -130,6 +130,10 @@ async function deleteGenre(genreId) {
   await pool.query(`DELETE FROM genres WHERE id = $1;`, [genreId])
 }
 
+async function deleteDeveloper(developerId) {
+  await pool.query(`DELETE FROM developers WHERE id = $1;`, [developerId])
+}
+
 module.exports = {
   getGamesCount,
   getDevelopersCount,
@@ -147,4 +151,5 @@ module.exports = {
   editDeveloper,
   editGame,
   deleteGenre,
+  deleteDeveloper,
 };

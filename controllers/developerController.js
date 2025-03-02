@@ -32,4 +32,10 @@ async function editDeveloper(req,res) {
   res.redirect(`/developers/${developerId}`)
 }
 
-module.exports = { getDevelopersPage, getForm, addNewDeveloper, getItem, getEditForm, editDeveloper };
+async function deleteDeveloper(req,res) {
+  const developerId = req.params.developerId
+  await db.deleteDeveloper(developerId)
+  res.redirect("/developers")
+}
+
+module.exports = { getDevelopersPage, getForm, addNewDeveloper, getItem, getEditForm, editDeveloper, deleteDeveloper };

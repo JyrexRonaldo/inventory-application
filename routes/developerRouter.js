@@ -12,5 +12,6 @@ developerRouter
   .route("/:developerId/edit")
   .get(developerController.getEditForm)
   .post(developerController.editDeveloper);
+  developerRouter.get("/:developerId/delete", developerController.deleteDeveloper)
 
 module.exports = developerRouter;
