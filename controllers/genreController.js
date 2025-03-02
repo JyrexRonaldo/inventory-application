@@ -27,7 +27,7 @@ async function getEditForm(req, res) {
 async function editGenre(req,res) {
   const newGenreInfo =  req.body.genreName
   const genreId = req.params.genreId
-  db.editGenre(newGenreInfo, genreId)
+  await db.editGenre(newGenreInfo, genreId)
   res.redirect(`/genres/${genreId}`)
 }
 

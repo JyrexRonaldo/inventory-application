@@ -12,5 +12,6 @@ gameRouter
   .route("/:gameId/edit")
   .get(gameController.getEditForm)
   .post(gameController.editGame);
+  gameRouter.get("/:gameId/delete", gameController.deleteGame)
 
 module.exports = gameRouter;

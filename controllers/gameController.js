@@ -36,4 +36,10 @@ async function editGame(req,res) {
   res.redirect(`/games/${gameId}`)
 }
 
-module.exports = { getGamesPage, getForm, getItem, addNewGame, getEditForm, editGame };
+async function deleteGame(req,res) {
+  const gameId = req.params.gameId
+  await db.deleteGame(gameId)
+  res.redirect("/games")
+}
+
+module.exports = { getGamesPage, getForm, getItem, addNewGame, getEditForm, editGame, deleteGame };
