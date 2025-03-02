@@ -31,4 +31,11 @@ async function editGenre(req,res) {
   res.redirect(`/genres/${genreId}`)
 }
 
-module.exports = { getGenrePage, getForm, addNewGenre, getItem, getEditForm, editGenre };
+async function deleteGenre(req,res) {
+  const genreId = req.params.genreId
+  // console.log(genreId)
+  await db.deleteGenre(genreId)
+  res.redirect("/genres")
+}
+
+module.exports = { getGenrePage, getForm, addNewGenre, getItem, getEditForm, editGenre, deleteGenre };

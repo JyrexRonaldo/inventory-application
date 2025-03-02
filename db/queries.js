@@ -125,6 +125,11 @@ async function editGame(newInfo, gameId) {
   await pool.query(`UPDATE games_developers SET developer_id = $1 WHERE game_id = $2;`, [newInfo.developer, gameId])
 }
 
+async function deleteGenre(genreId) {
+  // await pool.query(`DELETE FROM games WHERE id IN (SELECT game_id FROM games_genres WHERE genre_id = $1);`,[genreId])
+  await pool.query(`DELETE FROM genres WHERE id = $1;`, [genreId])
+}
+
 module.exports = {
   getGamesCount,
   getDevelopersCount,
@@ -141,4 +146,5 @@ module.exports = {
   editGenre,
   editDeveloper,
   editGame,
+  deleteGenre,
 };

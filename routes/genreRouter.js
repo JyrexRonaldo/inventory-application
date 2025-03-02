@@ -12,5 +12,6 @@ genreRouter
   .route("/:genreId/edit")
   .get(genreController.getEditForm)
   .post(genreController.editGenre);
+  genreRouter.get("/:genreId/delete", genreController.deleteGenre)
 
 module.exports = genreRouter;
